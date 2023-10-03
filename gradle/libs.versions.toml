@@ -1,0 +1,68 @@
+[versions]
+agp = "8.1.1"
+org-jetbrains-kotlin-android = "1.8.10"
+core-ktx = "1.9.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+lifecycle-runtime-ktx = "2.6.2"
+activity-compose = "1.7.2"
+compose-bom = "2023.03.00"
+graphql = "3.8.2"
+serialization = "1.5.1"
+kodein = "7.19.0"
+navigation = "2.5.3"
+coil = "2.4.0"
+mockk = "1.13.8"
+arch-core-test = "2.2.0"
+apollo-graphql-test = "3.8.2"
+coroutines-test = "1.7.3"
+appcompat = "1.6.1"
+material = "1.9.0"
+
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+
+apollo-graphql-runtime = { group = "com.apollographql.apollo3", name = "apollo-runtime", version.ref = "graphql" }
+apollo-graphql-compose = { group = "com.apollographql.apollo3", name = "apollo-compose-paging-support", version.ref = "graphql" }
+apollo-graphql-cache = { group = "com.apollographql.apollo3", name = "apollo-normalized-cache", version.ref = "graphql" }
+kodein-di = { group = "org.kodein.di", name = "kodein-di", version.ref = "kodein" }
+
+kodein-android-core = { group = "org.kodein.di", name = "kodein-di-framework-android-core", version.ref = "kodein" }
+kodein-android-x = { group = "org.kodein.di", name = "kodein-di-framework-android-x", version.ref = "kodein" }
+kodein-android-compose = { group = "org.kodein.di", name = "kodein-di-framework-compose", version.ref = "kodein" }
+kodein-android-viewmodel = { group = "org.kodein.di", name = "kodein-di-framework-android-x-viewmodel", version.ref = "kodein" }
+
+serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+arch-core-test = { group = "androidx.arch.core", name = "core-testing", version.ref = "arch-core-test" }
+apollo-graphql-test = { group = "com.apollographql.apollo3", name = "apollo-testing-support", version.ref = "apollo-graphql-test" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+[plugins]
+com-android-application = { id = "com.android.application", version.ref = "agp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+com-apollographql-apollo3 = { id = "com.apollographql.apollo3", version.ref = "graphql" }
+
+[bundles]
+
