@@ -22,7 +22,7 @@ fun CharacterDetail(
     backToHome: () -> Unit,
 ) {
     characterDetailViewModel.queryCharacterDetail(characterId)
-    when(val character = characterDetailViewModel.charactersDetail.collectAsState().value){
+    when (val character = characterDetailViewModel.charactersDetail.collectAsState().value) {
         is ResultViewState.Success -> {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -35,11 +35,19 @@ fun CharacterDetail(
                     model = character.data.image,
                     contentDescription = null,
                 )
-                Text(modifier = Modifier.padding(vertical = 32.dp), text = character.data.name ?: "")
+                Text(
+                    modifier = Modifier.padding(vertical = 32.dp),
+                    text = character.data.name ?: ""
+                )
             }
         }
-        else -> {
+
+        is ResultViewState.Error -> {
             Text(modifier = Modifier.padding(vertical = 32.dp), text = "Falha no carregamento")
+        }
+
+        else -> {
+            Text(modifier = Modifier.padding(vertical = 32.dp), text = "Carregando")
         }
     }
 

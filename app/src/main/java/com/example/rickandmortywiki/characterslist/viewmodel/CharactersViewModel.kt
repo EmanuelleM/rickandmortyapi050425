@@ -23,6 +23,10 @@ class CharactersViewModel(
         _charactersList.tryEmit(ResultViewState.Loading)
         viewModelScope.launch {
             when (val characters = useCase.getCharacters()) {
+                is ResultViewState.Initial -> {
+                    _charactersList.emit(ResultViewState.Initial)
+                }
+
                 is ResultViewState.Success -> {
                     _charactersList.emit(characters)
                 }
