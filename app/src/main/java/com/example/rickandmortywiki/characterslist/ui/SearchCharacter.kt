@@ -3,6 +3,7 @@ package com.example.rickandmortywiki.characterslist.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,7 +23,9 @@ fun SearchCharacter(
     backToHome: () -> Unit,
     characterId: (name: String, status: String) -> Unit,
 ) {
-    Column {
+    Column(
+        modifier = Modifier.padding(horizontal = 8.dp)
+    ) {
         AppBarTopBack("Filtro", backToHome)
         Column {
             var characterName = ""
@@ -32,22 +35,30 @@ fun SearchCharacter(
 
             SimpleFilledTextFieldSample { characterName = it }
 
-            Column {
+            Column(modifier = Modifier.padding(vertical = 8.dp)) {
                 Text(text = "Status")
 
                 Row {
-                    Button(onClick = { selectedState = "alive" }) {
+                    Button(modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
+                        onClick = {
+                            selectedState = "alive"
+                        }) {
                         Text(text = "alive")
                     }
-                    Button(onClick = { selectedState = "dead" }) {
+                    Button(modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
+                        onClick = { selectedState = "dead" }) {
                         Text(text = "dead")
                     }
-                    Button(onClick = { selectedState = "unknow" }) {
+                    Button(modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
+                        onClick = { selectedState = "unknow" }) {
                         Text(text = "unknow")
                     }
                 }
                 Spacer(modifier = Modifier.padding(40.dp))
                 Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 8.dp, vertical = 8.dp),
                     onClick = {
                         characterId(characterName, selectedState)
                         backToHome()
