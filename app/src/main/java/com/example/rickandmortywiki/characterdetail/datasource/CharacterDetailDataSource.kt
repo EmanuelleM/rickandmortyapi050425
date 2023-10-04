@@ -1,8 +1,8 @@
 package com.example.rickandmortywiki.characterdetail.datasource
 
-import com.example.rickandmortywiki.CharacterQuery
-import kotlinx.coroutines.flow.Flow
+import com.example.rickandmortywiki.common.model.Character
+import com.example.rickandmortywiki.common.networking.ResponseResult
 
 interface CharacterDetailDataSource {
-    fun getCharacterDetail(characterId: String): Flow<CharacterQuery.Data>
+    suspend fun getCharacterDetail(characterId: String): ResponseResult<Character>
 }

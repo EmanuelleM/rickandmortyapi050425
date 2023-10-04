@@ -17,7 +17,11 @@ val characterDetailDataSource =
 
 val characterDetailRepository =
     DI.Module("characterDetailRepository") {
-        bind<CharacterDetailRepository>() with provider { CharacterDetailRepositoryImpl(instance()) }
+        bind<CharacterDetailRepository>() with provider {
+            CharacterDetailRepositoryImpl(
+                characterDataSource = instance()
+            )
+        }
     }
 
 val characterDetailViewModel =

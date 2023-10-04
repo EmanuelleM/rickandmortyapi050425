@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.rickandmortywiki.characterdetail.viewmodel.CharacterDetailViewModel
 import com.example.rickandmortywiki.characterslist.ui.AppBarTopBack
+import com.example.rickandmortywiki.common.networking.ResultViewState
 
 @Composable
 fun CharacterDetail(
@@ -21,18 +22,25 @@ fun CharacterDetail(
     backToHome: () -> Unit,
 ) {
     characterDetailViewModel.queryCharacterDetail(characterId)
-    val character = characterDetailViewModel.charactersDetail.collectAsState().value.characters
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        AppBarTopBack("", backToHome)
-        AsyncImage(
-            modifier = Modifier
-                .width(300.dp)
-                .height(300.dp),
-            model = character.image,
-            contentDescription = null,
-        )
-        Text(modifier = Modifier.padding(vertical = 32.dp), text = character.name ?: "")
+    when(val character = characterDetailViewModel.charactersDetail.collectAsState().value){
+        is ResultViewState.Success -> {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                AppBarTopBack("", backToHome)
+                AsyncImage(
+                    modifier = Modifier
+                        .width(300.dp)
+                        .height(300.dp),
+                    model = character.data.image,
+                    contentDescription = null,
+                )
+                Text(modifier = Modifier.padding(vertical = 32.dp), text = character.data.name ?: "")
+            }
+        }
+        else -> {
+            Text(modifier = Modifier.padding(vertical = 32.dp), text = "Falha no carregamento")
+        }
     }
+
 }

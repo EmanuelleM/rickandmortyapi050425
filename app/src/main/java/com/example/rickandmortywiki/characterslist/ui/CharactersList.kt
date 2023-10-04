@@ -60,7 +60,11 @@ fun CharacterItem(
             }
         },
     ) {
-        AsyncImage(model = character.image, contentDescription = null, contentScale = ContentScale.Crop)
+        AsyncImage(
+            model = character.image,
+            contentDescription = null,
+            contentScale = ContentScale.Crop
+        )
         character.name?.let { Text(text = it) }
     }
 }
