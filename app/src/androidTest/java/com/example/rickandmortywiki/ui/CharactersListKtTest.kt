@@ -7,7 +7,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.example.rickandmortywiki.characterslist.ui.CharactersList
 import com.example.rickandmortywiki.common.model.Character
-import com.example.rickandmortywiki.ui.theme.RickAndMortyWikiTheme
+import com.example.rickandmortywiki.theme.RickAndMortyWikiTheme
 import org.junit.Rule
 import org.junit.Test
 

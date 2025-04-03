@@ -19,8 +19,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import com.example.rickandmortywiki.ui.theme.Purple40
-import com.example.rickandmortywiki.ui.theme.PurpleGrey40
+import com.example.rickandmortywiki.theme.Purple40
+import com.example.rickandmortywiki.theme.PurpleGrey40
 
 @Composable
 fun SearchCharacter(

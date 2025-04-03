@@ -22,7 +22,7 @@ import com.example.rickandmortywiki.characterslist.viewmodel.CharactersViewModel
 import com.example.rickandmortywiki.common.networking.ResultViewState
 import com.example.rickandmortywiki.navigation.NavigationArguments
 import com.example.rickandmortywiki.navigation.NavigationDestinations
-import com.example.rickandmortywiki.ui.theme.RickAndMortyWikiTheme
+import com.example.rickandmortywiki.theme.RickAndMortyWikiTheme
 import org.kodein.di.DI
 import org.kodein.di.DIAware
 import org.kodein.di.DIContext
