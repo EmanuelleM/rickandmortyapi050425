@@ -2,7 +2,7 @@ package com.example.rickandmortywiki.characterslist.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.rickandmortywiki.characterslist.usecase.CharactersUseCase
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultViewState
 import com.example.rickandmortywiki.factory.CharactersFactory
 import com.example.rickandmortywiki.rule.TestCoroutineRule
 import io.mockk.coEvery

@@ -33,5 +33,5 @@ val charactersUseCase =
 
 val charactersViewModel =
     DI.Module("charactersViewModel") {
-        bind<CharactersViewModel>() with provider { CharactersViewModel(instance()) }
+        bind<CharactersViewModel>() with provider { CharactersViewModel(instance(), instance(), instance()) }
     }

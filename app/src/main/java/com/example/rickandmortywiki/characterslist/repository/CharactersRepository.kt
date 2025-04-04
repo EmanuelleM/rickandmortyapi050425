@@ -1,7 +1,7 @@
 package com.example.rickandmortywiki.characterslist.repository
 
 import com.example.rickandmortywiki.common.model.Characters
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultViewState
 
 interface CharactersRepository {
     suspend fun getCharactersList(): ResultViewState<Characters>

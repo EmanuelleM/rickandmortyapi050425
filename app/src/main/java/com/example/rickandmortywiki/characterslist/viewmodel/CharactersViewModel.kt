@@ -1,40 +1,46 @@
 package com.example.rickandmortywiki.characterslist.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortywiki.characterslist.usecase.CharactersUseCase
 import com.example.rickandmortywiki.common.model.Characters
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.NetworkUtils
+import com.example.rickandmortywiki.common.network.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultViewState.Success
+import com.example.rickandmortywiki.common.network.ResultViewState.Loading
+import com.example.rickandmortywiki.common.network.ResultViewState.Error
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class CharactersViewModel(
     private val useCase: CharactersUseCase,
+    private val networkUtils: NetworkUtils,
+    private val appContext: Context,
 ) : ViewModel() {
-    private val _charactersList =
-        MutableStateFlow<ResultViewState<Characters>>(
-            ResultViewState.Initial,
+
+    init {
+        getCharactersList()
+    }
+
+    private val _charactersList = MutableStateFlow<ResultViewState<Characters>>(
+        Loading,
         )
 
     val charactersList = _charactersList.asStateFlow()
 
     fun getCharactersList() {
-        _charactersList.tryEmit(ResultViewState.Loading)
         viewModelScope.launch {
             when (val characters = useCase.getCharacters()) {
-                is ResultViewState.Initial -> {
-                    _charactersList.emit(ResultViewState.Initial)
-                }
-
-                is ResultViewState.Success -> {
+                is Success -> {
                     _charactersList.emit(characters)
                 }
 
                 else -> {
-                    if (characters is ResultViewState.Error) {
+                    if (characters is Error) {
                         val charactersError = characters.resultError
-                        _charactersList.emit(ResultViewState.Error(charactersError))
+                        _charactersList.emit(Error(charactersError))
                     }
                 }
             }
@@ -45,20 +51,23 @@ class CharactersViewModel(
         name: String,
         status: String,
     ) = viewModelScope.launch {
-        _charactersList.tryEmit(ResultViewState.Loading)
+        _charactersList.tryEmit(Loading)
         viewModelScope.launch {
             when (val characters = useCase.getCharactersByFilter(name, status)) {
-                is ResultViewState.Success -> {
+                is Success -> {
                     _charactersList.emit(characters)
                 }
 
                 else -> {
-                    if (characters is ResultViewState.Error) {
+                    if (characters is Error) {
                         val charactersError = characters.resultError
-                        _charactersList.emit(ResultViewState.Error(charactersError))
+                        _charactersList.emit(Error(charactersError))
                     }
                 }
             }
         }
     }
+
+    private fun checkNetworkConnection(context: Context) =
+        !(networkUtils.isInternetAvailable(context) && !networkUtils.isWifiConnected(context))
 }

@@ -1,8 +1,9 @@
 package com.example.rickandmortywiki.characterslist.usecase
 
+import android.net.ConnectivityManager
 import com.example.rickandmortywiki.characterslist.repository.CharactersRepository
 import com.example.rickandmortywiki.common.model.Characters
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultViewState
 
 class CharactersUseCase(
     private val repository: CharactersRepository,
@@ -26,7 +27,11 @@ class CharactersUseCase(
                 successFlow(characters.data)
             }
 
-            else -> ResultViewState.Error("generic error")
+            is ResultViewState.Loading -> {
+                ResultViewState.Loading
+            }
+
+            is ResultViewState.Error -> ResultViewState.Error("generic error")
         }
     }
 

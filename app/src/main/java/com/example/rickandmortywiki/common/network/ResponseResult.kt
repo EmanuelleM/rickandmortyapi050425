@@ -1,4 +1,4 @@
-package com.example.rickandmortywiki.common.networking
+package com.example.rickandmortywiki.common.network
 
 sealed class ResponseResult<out R> {
     data class Success<out T>(val data: T) : ResponseResult<T>()

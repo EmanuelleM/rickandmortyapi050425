@@ -1,8 +1,8 @@
 package com.example.rickandmortywiki.characterslist.repository
 
 import com.example.rickandmortywiki.characterslist.datasource.CharactersDataSource
-import com.example.rickandmortywiki.common.networking.ResponseResult
-import com.example.rickandmortywiki.common.networking.ResultMapper
+import com.example.rickandmortywiki.common.network.ResponseResult
+import com.example.rickandmortywiki.common.network.ResultMapper
 import com.example.rickandmortywiki.factory.CharactersFactory
 import io.mockk.coEvery
 import io.mockk.coVerify

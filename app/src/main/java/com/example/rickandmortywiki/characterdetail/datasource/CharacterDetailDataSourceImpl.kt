@@ -2,8 +2,8 @@ package com.example.rickandmortywiki.characterdetail.datasource
 
 import com.example.rickandmortywiki.CharacterQuery
 import com.example.rickandmortywiki.common.model.Character
-import com.example.rickandmortywiki.common.networking.ResponseResult
-import com.example.rickandmortywiki.common.networking.RickAndMortyApi
+import com.example.rickandmortywiki.common.network.ResponseResult
+import com.example.rickandmortywiki.common.network.RickAndMortyApi
 
 class CharacterDetailDataSourceImpl(
     private val webService: RickAndMortyApi,

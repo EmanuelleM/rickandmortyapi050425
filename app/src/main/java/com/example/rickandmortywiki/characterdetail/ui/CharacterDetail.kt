@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.rickandmortywiki.characterdetail.viewmodel.CharacterDetailViewModel
 import com.example.rickandmortywiki.characterslist.ui.AppBarTopBack
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultViewState
 
 @Composable
 fun CharacterDetail(

@@ -1,4 +1,4 @@
-package com.example.rickandmortywiki.common.networking
+package com.example.rickandmortywiki.common.network
 
 object ResultMapper {
     fun <T> toResultViewState(responseResult: ResponseResult<T>): ResultViewState<T> {

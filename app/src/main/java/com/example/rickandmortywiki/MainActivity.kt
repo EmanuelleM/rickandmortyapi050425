@@ -19,7 +19,7 @@ import com.example.rickandmortywiki.characterdetail.viewmodel.CharacterDetailVie
 import com.example.rickandmortywiki.characterslist.ui.CharactersList
 import com.example.rickandmortywiki.characterslist.ui.SearchCharacter
 import com.example.rickandmortywiki.characterslist.viewmodel.CharactersViewModel
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultViewState
 import com.example.rickandmortywiki.navigation.NavigationArguments
 import com.example.rickandmortywiki.navigation.NavigationDestinations
 import com.example.rickandmortywiki.theme.RickAndMortyWikiTheme
@@ -66,7 +66,6 @@ class MainActivity : ComponentActivity(), DIAware {
                     val characterState =
                         charactersViewModel.charactersList.collectAsState().value
                 ) {
-                    is ResultViewState.Initial -> charactersViewModel.getCharactersList()
                     is ResultViewState.Loading -> Text("carregando API")
                     is ResultViewState.Success -> {
                         CharactersList(

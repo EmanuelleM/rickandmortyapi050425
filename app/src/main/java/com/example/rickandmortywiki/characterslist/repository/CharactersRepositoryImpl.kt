@@ -2,8 +2,8 @@ package com.example.rickandmortywiki.characterslist.repository
 
 import com.example.rickandmortywiki.characterslist.datasource.CharactersDataSource
 import com.example.rickandmortywiki.common.model.Characters
-import com.example.rickandmortywiki.common.networking.ResultMapper
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultMapper
+import com.example.rickandmortywiki.common.network.ResultViewState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

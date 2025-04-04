@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortywiki.characterdetail.repository.CharacterDetailRepository
 import com.example.rickandmortywiki.common.model.Character
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultViewState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ class CharacterDetailViewModel(
     private val repository: CharacterDetailRepository,
 ) : ViewModel() {
     private val _charactersDetail = MutableStateFlow<ResultViewState<Character>>(
-        ResultViewState.Initial,
+        ResultViewState.Loading,
     )
 
     val charactersDetail = _charactersDetail.asStateFlow()

@@ -1,4 +1,4 @@
-package com.example.rickandmortywiki.common.networking
+package com.example.rickandmortywiki.common.network
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.cache.normalized.FetchPolicy

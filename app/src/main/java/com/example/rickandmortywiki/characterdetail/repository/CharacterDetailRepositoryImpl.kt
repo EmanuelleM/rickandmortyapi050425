@@ -2,12 +2,10 @@ package com.example.rickandmortywiki.characterdetail.repository
 
 import com.example.rickandmortywiki.characterdetail.datasource.CharacterDetailDataSource
 import com.example.rickandmortywiki.common.model.Character
-import com.example.rickandmortywiki.common.networking.ResultMapper
-import com.example.rickandmortywiki.common.networking.ResultViewState
+import com.example.rickandmortywiki.common.network.ResultMapper
+import com.example.rickandmortywiki.common.network.ResultViewState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class CharacterDetailRepositoryImpl(

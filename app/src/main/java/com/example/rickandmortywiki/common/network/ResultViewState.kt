@@ -1,9 +1,8 @@
-package com.example.rickandmortywiki.common.networking
+package com.example.rickandmortywiki.common.network
 
 sealed class ResultViewState<out R> {
 
     object Loading : ResultViewState<Nothing>()
-    object Initial : ResultViewState<Nothing>()
 
     data class Success<out T>(val data: T) : ResultViewState<T>()
 

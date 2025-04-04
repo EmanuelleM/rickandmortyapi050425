@@ -4,8 +4,8 @@ import com.example.rickandmortywiki.CharactersListByFilterQuery
 import com.example.rickandmortywiki.CharactersListQuery
 import com.example.rickandmortywiki.common.model.Character
 import com.example.rickandmortywiki.common.model.Characters
-import com.example.rickandmortywiki.common.networking.ResponseResult
-import com.example.rickandmortywiki.common.networking.RickAndMortyApi
+import com.example.rickandmortywiki.common.network.ResponseResult
+import com.example.rickandmortywiki.common.network.RickAndMortyApi
 
 class CharactersDataSourceImpl(
     private val webService: RickAndMortyApi,
