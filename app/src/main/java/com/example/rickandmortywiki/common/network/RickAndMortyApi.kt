@@ -13,9 +13,9 @@ class RickAndMortyApi {
 
     private val apolloClient =
         ApolloClient.Builder()
-            .serverUrl("https://rickandmortyapi.com/graphql")
+            .serverUrl("https://rickandmortyapi.com/graphqzl")
             .normalizedCache(cacheFactory)
-            .fetchPolicy(FetchPolicy.CacheFirst)
+            .fetchPolicy(FetchPolicy.NetworkFirst)
             .build()
 
     fun getApolloClient(): ApolloClient = apolloClient
