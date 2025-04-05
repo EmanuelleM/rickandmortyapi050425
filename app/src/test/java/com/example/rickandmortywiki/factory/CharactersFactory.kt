@@ -1,7 +1,7 @@
 package com.example.rickandmortywiki.factory
 
-import com.example.rickandmortywiki.common.model.CharacterItem
-import com.example.rickandmortywiki.common.model.CharacterList
+import com.example.common.model.CharacterItem
+import com.example.common.model.CharacterList
 
 internal object CharactersFactory {
     fun getCharacters() =

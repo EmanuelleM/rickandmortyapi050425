@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Rick and Morty Wiki"
 include(":app")
- 
+include(":common")

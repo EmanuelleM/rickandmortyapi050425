@@ -1,0 +1,11 @@
+query CharactersListByFilter($name: String!, $status: String!) {
+    characters(filter: { name: $name, status: $status }) {
+        results {
+            id
+            name
+            species
+            image
+            status
+        }
+    }
+}

@@ -1,6 +1,6 @@
 package com.example.rickandmortywiki
 
-import com.example.rickandmortywiki.common.model.CharacterItem
+import com.example.common.model.CharacterItem
 
 fun characters(): ArrayList<CharacterItem> =
     arrayListOf(

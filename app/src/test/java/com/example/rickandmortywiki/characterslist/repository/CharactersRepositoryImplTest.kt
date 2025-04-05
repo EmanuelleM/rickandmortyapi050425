@@ -1,8 +1,8 @@
 package com.example.rickandmortywiki.characterslist.repository
 
-import com.example.rickandmortywiki.characterslist.datasource.CharactersDataSource
-import com.example.rickandmortywiki.common.network.ResponseResult
-import com.example.rickandmortywiki.common.network.ResultMapper
+import com.example.rickandmortywiki.characterslist.datasource.CharacterListDataSource
+import com.example.common.network.ResponseResult
+import com.example.common.network.ResultMapper
 import com.example.rickandmortywiki.factory.CharactersFactory
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -14,10 +14,10 @@ import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class CharactersRepositoryImplTest {
-    private val dataSource = mockk<CharactersDataSource>()
+    private val dataSource = mockk<CharacterListDataSource>()
     private val repository by lazy {
-        CharactersRepositoryImpl(
-            charactersDataSource = dataSource,
+        CharacterListRepositoryImpl(
+            characterListDataSource = dataSource,
         )
     }
 

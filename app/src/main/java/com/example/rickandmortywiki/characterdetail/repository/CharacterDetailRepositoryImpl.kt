@@ -1,9 +1,9 @@
 package com.example.rickandmortywiki.characterdetail.repository
 
 import com.example.rickandmortywiki.characterdetail.datasource.CharacterDetailDataSource
-import com.example.rickandmortywiki.common.model.CharacterItem
-import com.example.rickandmortywiki.common.network.ResultMapper
-import com.example.rickandmortywiki.common.network.ResultViewState
+import com.example.common.model.CharacterItem
+import com.example.common.network.ResultMapper
+import com.example.common.network.ResultViewState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -18,19 +18,5 @@ class CharacterDetailRepositoryImpl(
                 characterDataSource.getCharacterDetail(characterId),
             )
         }
-
-//        return characterDataSource.getCharacterDetail(characterId).map { result ->
-//            val character = result.character
-//            return@map Character(
-//                id = character?.id,
-//                name = character?.name,
-//                status = character?.status,
-//                species = character?.species,
-//                type = character?.species,
-//                gender = character?.gender,
-//                image = character?.image,
-//                created = character?.created,
-//            )
-//        }
     }
 }

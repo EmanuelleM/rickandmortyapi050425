@@ -2,9 +2,9 @@ package com.example.rickandmortywiki.characterslist.viewmodel
 
 import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.rickandmortywiki.characterslist.usecase.CharactersUseCase
-import com.example.rickandmortywiki.common.network.NetworkUtils
-import com.example.rickandmortywiki.common.network.ResultViewState
+import com.example.rickandmortywiki.characterslist.usecase.CharacterListUseCase
+import com.example.common.network.NetworkUtils
+import com.example.common.network.ResultViewState
 import com.example.rickandmortywiki.factory.CharactersFactory
 import com.example.rickandmortywiki.rule.TestCoroutineRule
 import io.mockk.coEvery
@@ -23,11 +23,11 @@ class CharactersViewModelTest {
     @get:Rule
     val testCoroutineRule = TestCoroutineRule()
 
-    private val useCase = mockk<CharactersUseCase>()
+    private val useCase = mockk<CharacterListUseCase>()
     private val networkUtils = mockk<NetworkUtils>()
     private val context = mockk<Context>()
     private val viewModel by lazy {
-        CharactersViewModel(useCase, networkUtils, context)
+        CharacterListViewModel(useCase, networkUtils, context)
     }
 
     @Test

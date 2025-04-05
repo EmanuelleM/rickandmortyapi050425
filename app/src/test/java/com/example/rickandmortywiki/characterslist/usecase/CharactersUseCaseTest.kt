@@ -2,8 +2,8 @@ package com.example.rickandmortywiki.characterslist.usecase
 
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.rickandmortywiki.characterslist.repository.CharactersRepository
-import com.example.rickandmortywiki.common.network.ResultViewState
+import com.example.rickandmortywiki.characterslist.repository.CharacterListRepository
+import com.example.common.network.ResultViewState
 import com.example.rickandmortywiki.factory.CharactersFactory
 import com.example.rickandmortywiki.rule.TestCoroutineRule
 import io.mockk.coEvery
@@ -23,9 +23,9 @@ class CharactersUseCaseTest {
     @get:Rule
     val testCoroutineRule = TestCoroutineRule()
 
-    private val repository = mockk<CharactersRepository>()
+    private val repository = mockk<CharacterListRepository>()
     private val useCase by lazy {
-        CharactersUseCase(repository)
+        CharacterListUseCase(repository)
     }
 
     @Test

@@ -18,8 +18,8 @@ import com.example.rickandmortywiki.characterdetail.ui.CharacterDetail
 import com.example.rickandmortywiki.characterdetail.viewmodel.CharacterDetailViewModel
 import com.example.rickandmortywiki.characterslist.ui.CharactersList
 import com.example.rickandmortywiki.characterslist.ui.SearchCharacter
-import com.example.rickandmortywiki.characterslist.viewmodel.CharactersViewModel
-import com.example.rickandmortywiki.common.network.ResultViewState
+import com.example.rickandmortywiki.characterslist.viewmodel.CharacterListViewModel
+import com.example.common.network.ResultViewState
 import com.example.rickandmortywiki.navigation.NavigationArguments
 import com.example.rickandmortywiki.navigation.NavigationDestinations
 import com.example.rickandmortywiki.theme.RickAndMortyWikiTheme
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity(), DIAware {
     override lateinit var di: DI
     override val diContext: DIContext<*> = diContext(this)
 
-    private val charactersViewModel: CharactersViewModel by instance()
+    private val characterListViewModel: CharacterListViewModel by instance()
     private val characterDetailViewModel: CharacterDetailViewModel by instance()
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity(), DIAware {
             RickAndMortyWikiTheme {
                 Scaffold { paddingValues ->
                     Box(Modifier.padding(paddingValues)) {
-                        MainNavHost(charactersViewModel, characterDetailViewModel)
+                        MainNavHost(characterListViewModel, characterDetailViewModel)
                     }
                 }
             }
@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity(), DIAware {
 
     @Composable
     private fun MainNavHost(
-        charactersViewModel: CharactersViewModel,
+        characterListViewModel: CharacterListViewModel,
         characterDetailViewModel: CharacterDetailViewModel,
     ) {
         val navController = rememberNavController()
@@ -64,7 +64,7 @@ class MainActivity : ComponentActivity(), DIAware {
             composable(route = NavigationDestinations.CHARACTER_LIST) {
                 when (
                     val characterState =
-                        charactersViewModel.charactersList.collectAsState().value
+                        characterListViewModel.charactersList.collectAsState().value
                 ) {
                     is ResultViewState.Loading -> Text("carregando API")
                     is ResultViewState.Success -> {
@@ -109,6 +109,6 @@ class MainActivity : ComponentActivity(), DIAware {
         name: String,
         status: String,
     ) {
-        charactersViewModel.queryCharactersListByParameter(name, status)
+        characterListViewModel.queryCharactersListByParameter(name, status)
     }
 }

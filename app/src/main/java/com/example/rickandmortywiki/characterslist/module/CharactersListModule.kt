@@ -1,37 +1,37 @@
 package com.example.rickandmortywiki.characterslist.module
 
-import com.example.rickandmortywiki.characterslist.datasource.CharactersDataSource
-import com.example.rickandmortywiki.characterslist.datasource.CharactersDataSourceImpl
-import com.example.rickandmortywiki.characterslist.repository.CharactersRepository
-import com.example.rickandmortywiki.characterslist.repository.CharactersRepositoryImpl
-import com.example.rickandmortywiki.characterslist.usecase.CharactersUseCase
-import com.example.rickandmortywiki.characterslist.viewmodel.CharactersViewModel
+import com.example.rickandmortywiki.characterslist.datasource.CharacterListDataSource
+import com.example.rickandmortywiki.characterslist.datasource.CharacterListDataSourceImpl
+import com.example.rickandmortywiki.characterslist.repository.CharacterListRepository
+import com.example.rickandmortywiki.characterslist.repository.CharacterListRepositoryImpl
+import com.example.rickandmortywiki.characterslist.usecase.CharacterListUseCase
+import com.example.rickandmortywiki.characterslist.viewmodel.CharacterListViewModel
 import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.instance
 import org.kodein.di.provider
 
-val charactersDataSource =
+val characterListDataSource =
     DI.Module("charactersDataSource") {
-        bind<CharactersDataSource>() with provider { CharactersDataSourceImpl(instance()) }
+        bind<CharacterListDataSource>() with provider { CharacterListDataSourceImpl(instance()) }
     }
 
 val charactersListRepository =
     DI.Module("charactersListRepository") {
-        bind<CharactersRepository>() with
+        bind<CharacterListRepository>() with
             provider {
-                CharactersRepositoryImpl(
-                    charactersDataSource = instance(),
+                CharacterListRepositoryImpl(
+                    characterListDataSource = instance(),
                 )
             }
     }
 
-val charactersUseCase =
+val characterListUseCase =
     DI.Module("charactersUseCase") {
-        bind<CharactersUseCase>() with provider { CharactersUseCase(instance()) }
+        bind<CharacterListUseCase>() with provider { CharacterListUseCase(instance()) }
     }
 
-val charactersViewModel =
+val characterListViewModel =
     DI.Module("charactersViewModel") {
-        bind<CharactersViewModel>() with provider { CharactersViewModel(instance(), instance(), instance()) }
+        bind<CharacterListViewModel>() with provider { CharacterListViewModel(instance(), instance(), instance()) }
     }

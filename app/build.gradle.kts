@@ -78,6 +78,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(project(":common"))
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

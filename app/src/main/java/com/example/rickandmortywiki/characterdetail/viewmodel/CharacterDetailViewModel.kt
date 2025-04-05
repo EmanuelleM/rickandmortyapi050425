@@ -3,8 +3,8 @@ package com.example.rickandmortywiki.characterdetail.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortywiki.characterdetail.repository.CharacterDetailRepository
-import com.example.rickandmortywiki.common.model.CharacterItem
-import com.example.rickandmortywiki.common.network.ResultViewState
+import com.example.common.model.CharacterItem
+import com.example.common.network.ResultViewState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
