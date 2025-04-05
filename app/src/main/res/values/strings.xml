@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Rick and Morty Wiki</string>
+    <string name="carregando_api">Carregando API</string>
+    <string name="pesquisa_personagem">pesquisa personagem</string>
+    <string name="personagens">Personagens</string>
+    <string name="filtro">Filtro</string>
+    <string name="nome">Nome</string>
+    <string name="status">Status</string>
+    <string name="vivo">Vivo</string>
+    <string name="morto">Morto</string>
+    <string name="deconhecido">Deconhecido</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="character_name">character_name</string>
 </resources>

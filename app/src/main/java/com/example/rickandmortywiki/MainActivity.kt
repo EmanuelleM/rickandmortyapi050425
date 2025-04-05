@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -66,7 +67,7 @@ class MainActivity : ComponentActivity(), DIAware {
                     val characterState =
                         characterListViewModel.charactersList.collectAsState().value
                 ) {
-                    is ResultViewState.Loading -> Text("carregando API")
+                    is ResultViewState.Loading -> Text(stringResource(R.string.carregando_api))
                     is ResultViewState.Success -> {
                         CharactersList(
                             characterItem = characterState.data.results,

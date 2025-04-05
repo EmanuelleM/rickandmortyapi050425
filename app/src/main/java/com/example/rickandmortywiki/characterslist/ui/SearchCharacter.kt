@@ -18,9 +18,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.rickandmortywiki.R
 import com.example.rickandmortywiki.theme.Purple40
 import com.example.rickandmortywiki.theme.PurpleGrey40
+
+const val VIVO = "Vivo"
+const val MORTO = "Morto"
+const val DESCONHECIDO = "Desconhecido"
 
 @Composable
 fun SearchCharacter(
@@ -30,12 +36,12 @@ fun SearchCharacter(
     Column(
         modifier = Modifier.padding(horizontal = 8.dp)
     ) {
-        AppBarTopBack("Filtro", backToHome)
+        AppBarTopBack(stringResource(R.string.filtro), backToHome)
         Column {
             var characterName = ""
             var selectedState by remember { mutableStateOf(characterName) }
 
-            Text(text = "Nome")
+            Text(text = stringResource(R.string.nome))
 
             SimpleFilledTextFieldSample { characterName = it }
 
@@ -43,41 +49,41 @@ fun SearchCharacter(
                 modifier = Modifier
                     .padding(vertical = 8.dp)
             ) {
-                Text(text = "Status")
+                Text(text = stringResource(R.string.status))
 
                 Row {
                     Button(
                         modifier = Modifier
                             .padding(horizontal = 8.dp, vertical = 8.dp),
                         onClick = {
-                            selectedState = "alive"
+                            selectedState = VIVO
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = if (selectedState == "alive") Purple40 else PurpleGrey40),
+                        colors = ButtonDefaults.buttonColors(containerColor = if (selectedState == VIVO) Purple40 else PurpleGrey40),
                     )
                     {
-                        Text(text = "alive")
+                        Text(text = stringResource(R.string.vivo))
                     }
                     Button(
                         modifier = Modifier
                             .padding(horizontal = 8.dp, vertical = 8.dp),
                         onClick = {
-                            selectedState = "dead"
+                            selectedState = MORTO
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = if (selectedState == "dead") Purple40 else PurpleGrey40),
+                        colors = ButtonDefaults.buttonColors(containerColor = if (selectedState == MORTO) Purple40 else PurpleGrey40),
 
                         ) {
-                        Text(text = "dead")
+                        Text(text = stringResource(R.string.morto))
                     }
                     Button(
                         modifier = Modifier
                             .padding(horizontal = 8.dp, vertical = 8.dp),
                         onClick = {
-                            selectedState = "unknow"
+                            selectedState = DESCONHECIDO
                         },
-                        colors = ButtonDefaults.buttonColors(containerColor = if (selectedState == "unknow") Purple40 else PurpleGrey40),
+                        colors = ButtonDefaults.buttonColors(containerColor = if (selectedState == DESCONHECIDO) Purple40 else PurpleGrey40),
                     ) {
 
-                        Text(text = "unknow")
+                        Text(text = stringResource(R.string.deconhecido))
                     }
                 }
 
@@ -91,7 +97,7 @@ fun SearchCharacter(
                         backToHome()
                     },
                 ) {
-                    Text(text = "Filtrar")
+                    Text(text = stringResource(R.string.filtrar))
                 }
             }
         }
@@ -104,7 +110,7 @@ fun SimpleFilledTextFieldSample(name: (String) -> Unit) {
     var characterName by rememberSaveable { mutableStateOf("") }
 
     TextField(
-        modifier = Modifier.testTag("character_name"),
+        modifier = Modifier.testTag(stringResource(R.string.character_name)),
         value = characterName,
         onValueChange = {
             characterName = it

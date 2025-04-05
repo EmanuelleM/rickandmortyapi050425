@@ -11,9 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.common.model.CharacterItem
+import com.example.rickandmortywiki.R
 
 @Composable
 fun CharactersList(
@@ -22,7 +24,7 @@ fun CharactersList(
     onDetailClick: (id: String) -> Unit,
 ) {
     Column {
-        AppBarTop("Personagens", onSearchClick)
+        AppBarTop(stringResource(R.string.personagens), onSearchClick)
         Row {
             Column {
                 CharacterGrid(characterItems = characterItem, onDetailClick)

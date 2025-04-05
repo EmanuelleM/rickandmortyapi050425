@@ -9,7 +9,9 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.rickandmortywiki.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,7 +23,7 @@ fun AppBarTop(
         title = { Text(text = title) },
         actions = {
             IconButton(onClick = backToHome) {
-                Icon(Icons.Filled.Search, "pesquisa personagem")
+                Icon(Icons.Filled.Search, stringResource(R.string.pesquisa_personagem))
             }
         },
     )
@@ -37,7 +39,7 @@ fun AppBarTopBack(
         title = { Text(text = title) },
         navigationIcon = {
             IconButton(onClick = navigateToList) {
-                Icon(Icons.Filled.ArrowBack, "pesquisa personagem")
+                Icon(Icons.Filled.ArrowBack, stringResource(R.string.pesquisa_personagem))
             }
         },
     )
@@ -48,7 +50,7 @@ fun AppBarTopBack(
 @Composable
 fun TopAppBarPreview(){
     TopAppBar(
-        title = {Text("Rick and morty api")},
+        title = {Text(text = stringResource(R.string.app_name))},
         navigationIcon = {}
     )
 }
