@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortywiki.characterslist.usecase.CharactersUseCase
-import com.example.rickandmortywiki.common.model.Characters
+import com.example.rickandmortywiki.common.model.CharacterList
 import com.example.rickandmortywiki.common.network.NetworkUtils
 import com.example.rickandmortywiki.common.network.ResultViewState
 import com.example.rickandmortywiki.common.network.ResultViewState.Success
@@ -24,23 +24,23 @@ class CharactersViewModel(
         getCharactersList()
     }
 
-    private val _charactersList = MutableStateFlow<ResultViewState<Characters>>(
+    private val _characterListList = MutableStateFlow<ResultViewState<CharacterList>>(
         Loading,
         )
 
-    val charactersList = _charactersList.asStateFlow()
+    val charactersList = _characterListList.asStateFlow()
 
     fun getCharactersList() {
         viewModelScope.launch {
             when (val characters = useCase.getCharacters()) {
                 is Success -> {
-                    _charactersList.emit(characters)
+                    _characterListList.emit(characters)
                 }
 
                 else -> {
                     if (characters is Error) {
                         val charactersError = characters.resultError
-                        _charactersList.emit(Error(charactersError))
+                        _characterListList.emit(Error(charactersError))
                     }
                 }
             }
@@ -51,17 +51,17 @@ class CharactersViewModel(
         name: String,
         status: String,
     ) = viewModelScope.launch {
-        _charactersList.tryEmit(Loading)
+        _characterListList.tryEmit(Loading)
         viewModelScope.launch {
             when (val characters = useCase.getCharactersByFilter(name, status)) {
                 is Success -> {
-                    _charactersList.emit(characters)
+                    _characterListList.emit(characters)
                 }
 
                 else -> {
                     if (characters is Error) {
                         val charactersError = characters.resultError
-                        _charactersList.emit(Error(charactersError))
+                        _characterListList.emit(Error(charactersError))
                     }
                 }
             }

@@ -1,14 +1,13 @@
 package com.example.rickandmortywiki.characterslist.usecase
 
-import android.net.ConnectivityManager
 import com.example.rickandmortywiki.characterslist.repository.CharactersRepository
-import com.example.rickandmortywiki.common.model.Characters
+import com.example.rickandmortywiki.common.model.CharacterList
 import com.example.rickandmortywiki.common.network.ResultViewState
 
 class CharactersUseCase(
     private val repository: CharactersRepository,
 ) {
-    suspend fun getCharacters(): ResultViewState<Characters> {
+    suspend fun getCharacters(): ResultViewState<CharacterList> {
         return when (val characters = repository.getCharactersList()) {
             is ResultViewState.Success -> {
                 successFlow(characters.data)
@@ -21,7 +20,7 @@ class CharactersUseCase(
     suspend fun getCharactersByFilter(
         name: String,
         status: String,
-    ): ResultViewState<Characters> {
+    ): ResultViewState<CharacterList> {
         return when (val characters = repository.getCharactersListByParameter(name, status)) {
             is ResultViewState.Success -> {
                 successFlow(characters.data)
@@ -35,7 +34,7 @@ class CharactersUseCase(
         }
     }
 
-    private fun successFlow(characters: Characters) =
+    private fun successFlow(characters: CharacterList) =
         if (characters.results.isEmpty()) {
             ResultViewState.Error("empty list")
         } else {

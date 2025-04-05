@@ -1,17 +1,17 @@
 package com.example.rickandmortywiki
 
-import com.example.rickandmortywiki.common.model.Character
+import com.example.rickandmortywiki.common.model.CharacterItem
 
-fun characters(): ArrayList<Character> =
+fun characters(): ArrayList<CharacterItem> =
     arrayListOf(
-        Character(
+        CharacterItem(
             id = "1",
             name = "Rick Sanchez",
             species = "Human",
             status = "Alive",
             image = "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
         ),
-        Character(
+        CharacterItem(
             id = "8",
             name = "Adjudicator Rick",
             species = "Human",

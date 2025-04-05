@@ -3,7 +3,7 @@ package com.example.rickandmortywiki.common.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Character(
+data class CharacterItem(
     var id: String? = null,
     var name: String? = null,
     var status: String? = null,

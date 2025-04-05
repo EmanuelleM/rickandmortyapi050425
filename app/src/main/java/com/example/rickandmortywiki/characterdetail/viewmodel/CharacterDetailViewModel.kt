@@ -3,7 +3,7 @@ package com.example.rickandmortywiki.characterdetail.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortywiki.characterdetail.repository.CharacterDetailRepository
-import com.example.rickandmortywiki.common.model.Character
+import com.example.rickandmortywiki.common.model.CharacterItem
 import com.example.rickandmortywiki.common.network.ResultViewState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class CharacterDetailViewModel(
     private val repository: CharacterDetailRepository,
 ) : ViewModel() {
-    private val _charactersDetail = MutableStateFlow<ResultViewState<Character>>(
+    private val _charactersDetail = MutableStateFlow<ResultViewState<CharacterItem>>(
         ResultViewState.Loading,
     )
 
@@ -38,7 +38,7 @@ class CharacterDetailViewModel(
 }
 
 sealed class ViewStatus {
-    data class Success(val characters: Character) : ViewStatus()
+    data class Success(val characters: CharacterItem) : ViewStatus()
 
     data class Error(val exception: Throwable) : ViewStatus()
 }

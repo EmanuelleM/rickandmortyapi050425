@@ -6,7 +6,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.example.rickandmortywiki.characterslist.ui.CharactersList
-import com.example.rickandmortywiki.common.model.Character
+import com.example.rickandmortywiki.common.model.CharacterItem
 import com.example.rickandmortywiki.theme.RickAndMortyWikiTheme
 import org.junit.Rule
 import org.junit.Test
@@ -32,16 +32,16 @@ class CharactersListKtTest {
             composeTestRule.onNodeWithText("Adjudicator Rick").assertIsDisplayed().performClick()
         }
 
-    private fun characters(): ArrayList<Character> =
+    private fun characters(): ArrayList<CharacterItem> =
         arrayListOf(
-            Character(
+            CharacterItem(
                 id = "1",
                 name = "Rick Sanchez",
                 species = "Human",
                 status = "Alive",
                 image = "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
             ),
-            Character(
+            CharacterItem(
                 id = "8",
                 name = "Adjudicator Rick",
                 species = "Human",

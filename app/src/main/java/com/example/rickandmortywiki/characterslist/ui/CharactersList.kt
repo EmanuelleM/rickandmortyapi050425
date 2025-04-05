@@ -13,11 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.rickandmortywiki.common.model.Character
+import com.example.rickandmortywiki.common.model.CharacterItem
 
 @Composable
 fun CharactersList(
-    characterItem: ArrayList<Character>,
+    characterItem: ArrayList<CharacterItem>,
     onSearchClick: () -> Unit,
     onDetailClick: (id: String) -> Unit,
 ) {
@@ -25,7 +25,7 @@ fun CharactersList(
         AppBarTop("Personagens", onSearchClick)
         Row {
             Column {
-                CharacterGrid(characters = characterItem, onDetailClick)
+                CharacterGrid(characterItems = characterItem, onDetailClick)
             }
         }
     }
@@ -33,15 +33,15 @@ fun CharactersList(
 
 @Composable
 fun CharacterGrid(
-    characters: ArrayList<Character>,
+    characterItems: ArrayList<CharacterItem>,
     onDetailClick: (id: String) -> Unit,
 ) {
     LazyVerticalGrid(
         modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
         columns = GridCells.Adaptive(minSize = 128.dp),
     ) {
-        items(characters.size) { item ->
-            CharacterItem(character = characters[item], onDetailClick)
+        items(characterItems.size) { item ->
+            CharacterItem(characterItem = characterItems[item], onDetailClick)
         }
     }
 }
@@ -49,22 +49,22 @@ fun CharacterGrid(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterItem(
-    character: Character,
+    characterItem: CharacterItem,
     onDetailClick: (id: String) -> Unit,
 ) {
     Card(
         modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
         onClick = {
-            character.id?.let { id ->
+            characterItem.id?.let { id ->
                 onDetailClick(id)
             }
         },
     ) {
         AsyncImage(
-            model = character.image,
+            model = characterItem.image,
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
-        character.name?.let { Text(text = it) }
+        characterItem.name?.let { Text(text = it) }
     }
 }

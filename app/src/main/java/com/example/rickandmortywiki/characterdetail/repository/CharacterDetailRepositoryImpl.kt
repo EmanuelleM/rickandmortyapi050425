@@ -1,7 +1,7 @@
 package com.example.rickandmortywiki.characterdetail.repository
 
 import com.example.rickandmortywiki.characterdetail.datasource.CharacterDetailDataSource
-import com.example.rickandmortywiki.common.model.Character
+import com.example.rickandmortywiki.common.model.CharacterItem
 import com.example.rickandmortywiki.common.network.ResultMapper
 import com.example.rickandmortywiki.common.network.ResultViewState
 import kotlinx.coroutines.CoroutineDispatcher
@@ -12,7 +12,7 @@ class CharacterDetailRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val characterDataSource: CharacterDetailDataSource,
 ) : CharacterDetailRepository {
-    override suspend fun queryCharacterDetail(characterId: String): ResultViewState<Character> {
+    override suspend fun queryCharacterDetail(characterId: String): ResultViewState<CharacterItem> {
         return withContext(ioDispatcher) {
             ResultMapper.toResultViewState(
                 characterDataSource.getCharacterDetail(characterId),

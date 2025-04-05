@@ -1,7 +1,7 @@
 package com.example.rickandmortywiki.characterslist.repository
 
 import com.example.rickandmortywiki.characterslist.datasource.CharactersDataSource
-import com.example.rickandmortywiki.common.model.Characters
+import com.example.rickandmortywiki.common.model.CharacterList
 import com.example.rickandmortywiki.common.network.ResultMapper
 import com.example.rickandmortywiki.common.network.ResultViewState
 import kotlinx.coroutines.CoroutineDispatcher
@@ -12,7 +12,7 @@ class CharactersRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val charactersDataSource: CharactersDataSource,
 ) : CharactersRepository {
-    override suspend fun getCharactersList(): ResultViewState<Characters> {
+    override suspend fun getCharactersList(): ResultViewState<CharacterList> {
         return withContext(ioDispatcher) {
             ResultMapper.toResultViewState(
                 charactersDataSource.getCharactersList(),
@@ -23,7 +23,7 @@ class CharactersRepositoryImpl(
     override suspend fun getCharactersListByParameter(
         name: String,
         status: String,
-    ): ResultViewState<Characters> {
+    ): ResultViewState<CharacterList> {
         return withContext(ioDispatcher) {
             ResultMapper.toResultViewState(
                 charactersDataSource.getCharactersListByFilter(name, status),

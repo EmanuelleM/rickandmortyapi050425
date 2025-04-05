@@ -1,21 +1,21 @@
 package com.example.rickandmortywiki.factory
 
-import com.example.rickandmortywiki.common.model.Character
-import com.example.rickandmortywiki.common.model.Characters
+import com.example.rickandmortywiki.common.model.CharacterItem
+import com.example.rickandmortywiki.common.model.CharacterList
 
 internal object CharactersFactory {
     fun getCharacters() =
-        Characters(
+        CharacterList(
             results =
             arrayListOf(
-                Character(
+                CharacterItem(
                     id = "1",
                     name = "Rick Sanchez",
                     species = "Human",
                     status = "Alive",
                     image = "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
                 ),
-                Character(
+                CharacterItem(
                     id = "8",
                     name = "Adjudicator Rick",
                     species = "Human",
