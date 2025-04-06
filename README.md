@@ -2,7 +2,8 @@
 
 ## O que é esse app
 Esse é um aplicativo desenvolvido para exibir a lista de personagens de Rick and Morty.
-A exibição dos personagens é feita em formato de grade. É possível clicar nas imagens e ir para visualização de detalhes.
+A exibição dos personagens é feita em formato de grade. 
+É possível clicar nas imagens e ir para visualização de detalhes.
 Também é possível filtrar os personagens de acordo com o status de vida: morto, vivo e desconhecido.
 Esse app se executado uma primeira vez com internet, ele vai carregar os resultados da API. Se executado uma próxima vez com a internet desligada, ele vai carregar o resultado anterior salvo em memória.
 
