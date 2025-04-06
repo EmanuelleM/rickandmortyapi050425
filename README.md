@@ -9,7 +9,7 @@ A exibição dos personagens é feita em formato de grade.
 
 Também é possível filtrar os personagens de acordo com o status de vida: morto, vivo e desconhecido.
 
-Esse app se executado uma primeira vez com internet, ele vai carregar os resultados da API. Se executado uma próxima vez com a internet desligada, ele vai carregar o resultado anterior salvo em memória.
+Esse app, se executado pela primeira vez com internet, vai carregar os resultados da API. Se executado uma próxima vez com a internet desligada, ele vai carregar o resultado anterior salvo em memória.
 
 
 ### Rick and Morty Api
@@ -29,32 +29,37 @@ Mais informações podem ser encontradas aqui: [The Rick and Morty Api](http://r
 
 Todas as versoes de bibliotecas estão concentradas no arquivo: libs.versions.toml
 
+##Arquitetura
+
+MVVM, MVI e Clean Architecture. 
+
 ### Estrutura de pacotes
 
-Esse é um app criado a partir do um módulo app e consumindo recursos de rede do modulo commom. As partes relacionadas a cada função do app estão divididas em pacotes internos.
+Esse é um app criado a partir do um módulo app e consumindo recursos de rede do módulo commom. As partes relacionadas a cada função do app estão divididas em pacotes internos.
 
 ### App
-**characterslist**: contem todo o dominio da exibição da lista de personagens e o mecanismo de filtragem.
-**characterdetail**: contem todo o domínio da exibição de detalhes do personagem.
+**characterslist**: contém todo o dominio da exibição da lista de personagens e o mecanismo de filtragem.
+**characterdetail**: contém todo o domínio da exibição de detalhes do personagem.
 **navigation**: configurações de navegação entre as telas
-**theme**: configuração dos temas da app, fonte e esquema de cores.
+**theme**: onfiguração dos temas da app, fonte e esquema de cores.
 
 ### Common
-contem estruturas comuns aos fluxos do app
+
+Contém estruturas comuns aos fluxos do app
 
 	- chamada para API
-	- conversao do resultado para os modelos
+	- conversão do resultado para os modelos
 	- injeção do serviço
 	- estados da view 
 
 
-### Injeção de dependencia
+### Injeção de dependência
 
 A biblioteca utilizada para a injeção de dependência foi o Kodein. Cada módulo ou feature deve definir seus próprios módulos Kodein. Isso permite que cada módulo encapsule suas dependências e exponha apenas o necessário.
 
 
 ## Compatibilidade
 
-- SDK minimo: 24
+- SDK mínimo: 24
 - SDK target: 33
 - Orientação de tela: portrait e landscape
